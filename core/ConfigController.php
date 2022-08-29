@@ -14,21 +14,23 @@ class ConfigController
 
     public function __construct()
     {
+        echo "<br>";
+
         if (!empty(filter_input(INPUT_GET, "url", FILTER_DEFAULT))) {
             $this->url = filter_input(INPUT_GET, "url", FILTER_DEFAULT);
-            echo "URL: {$this->url} <br>";
-            echo "<br>";
+            // echo "URL: {$this->url} <br>";
+            // echo "<br>";
             $this->limparUrl();
-            echo "URL Limpa:  {$this->url} <br>";
-            echo "<br>";
+            // echo "URL Limpa:  {$this->url} <br>";
+            // echo "<br>";
 
             $this->urlConjunto = explode("/", $this->url);
-            var_dump($this->urlConjunto);
-            echo "<br> <br>";
+            // var_dump($this->urlConjunto);
+            // echo "<br> <br>";
             if (isset($this->urlConjunto[0])) {
                 $this->urlController = $this->slugController($this->urlConjunto[0]);
             } else {
-                $this->urlController = "Home";
+                $this->urlController = CONTROLLER;
             }
             if (isset($this->urlConjunto[1])) {
                 $this->urlParamentro = $this->urlConjunto[1];
@@ -36,7 +38,7 @@ class ConfigController
                 $this->urlParamentro = "";
             }
         } else {
-            $this->urlController = "Home";
+            $this->urlController = CONTROLLER;
             $this->urlParamentro = "";
         }
 
@@ -78,18 +80,8 @@ class ConfigController
 
     public function carregar()
     {
-        // Carrega estatico
-        $classeCarregar = new \App\sts\Controllers\SobreEmpresa();
-        echo "Carregando controller Estaticamente<br><hr>";
-
-
         // Carrega Dinamicamente
-        echo "Controller no metodo carregar:"  . $this->urlController . "<br>";
         $classe = "\\App\\sts\\Controllers\\" . $this->urlController;
-
-        echo "Caminho da classe : " . $classe . "<br>";
-        echo "Carregando controller Dinamicamente<br>";
-
         $classeCarregar = new $classe();
         $classeCarregar->index();
     }
