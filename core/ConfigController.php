@@ -75,4 +75,22 @@ class ConfigController
         $this->urlSlugController = str_replace(" ", "", $this->urlSlugController);
         return $this->urlSlugController;
     }
+
+    public function carregar()
+    {
+        // Carrega estatico
+        $classeCarregar = new \App\sts\Controllers\SobreEmpresa();
+        echo "Carregando controller Estaticamente<br><hr>";
+
+
+        // Carrega Dinamicamente
+        echo "Controller no metodo carregar:"  . $this->urlController . "<br>";
+        $classe = "\\App\\sts\\Controllers\\" . $this->urlController;
+
+        echo "Caminho da classe : " . $classe . "<br>";
+        echo "Carregando controller Dinamicamente<br>";
+
+        $classeCarregar = new $classe();
+        $classeCarregar->index();
+    }
 }
