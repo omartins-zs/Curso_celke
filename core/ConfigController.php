@@ -2,7 +2,14 @@
 
 namespace Core;
 
-class ConfigController
+// Exemplo antiga versão nao deu certo
+if (!defined('48b5ts')) {
+    // Redirecionando para a Raiz do projeto
+    header("Location: /");
+    die("Erro: Página não encontrada!");
+}
+
+class ConfigController extends Config
 {
 
     // private string $url;
@@ -14,6 +21,9 @@ class ConfigController
 
     public function __construct()
     {
+        $config = new \Core\Config();
+        $config->config();
+
         echo "<br>";
 
         if (!empty(filter_input(INPUT_GET, "url", FILTER_DEFAULT))) {

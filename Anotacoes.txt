@@ -2,3 +2,19 @@ Comandos Utilizados
 
 
 composer update
+
+
+composer dumpautoload
+
+
+
+Adicionando configurações Basicas do Projeto 
+
+
+
+
+Excluindo Options do htaccess devido ERRO
+
+
+
+Criando arquivo para gerenciar views 

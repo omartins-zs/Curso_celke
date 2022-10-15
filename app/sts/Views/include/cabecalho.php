@@ -3,7 +3,7 @@
 namespace App\sts\Controllers;
 
 // Exemplo antiga versão nao deu certo
-if (!defined('URL')) {
+if (!defined('48b5ts')) {
     // Redirecionando para a Raiz do projeto
     header("Location: /");
     die("Erro: Página não encontrada!");

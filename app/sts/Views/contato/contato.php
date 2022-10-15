@@ -1,14 +1,9 @@
 <?php
-
-namespace App\sts\Controllers;
-
 // Exemplo antiga versão nao deu certo
 if (!defined('48b5ts')) {
     // Redirecionando para a Raiz do projeto
     header("Location: /");
     die("Erro: Página não encontrada!");
 }
-?>
 
-</body>
-</html>
+echo "View da pagina Contato do code";

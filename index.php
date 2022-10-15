@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<html lang="pt-br">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Celke</title>
-</head>
+<?php
+// Iniciando a Session 
+session_start();
 
-<body>
-    <?php
-    require './core/Config.php';
-    require './vendor/autoload.php';
+// Limpar o Buffer de saida(Para não ter erro de redirecionamento)
+ob_start();
 
-    use Core\ConfigController as Home;
+define('48b5ts', true);
 
-    $url = new Home();
-    $url->carregar();
-    ?>
-</body>
 
-</html>
+require './vendor/autoload.php';
+
+use Core\ConfigController as Home;
+
+$url = new Home();
+$url->carregar();

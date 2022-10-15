@@ -3,7 +3,7 @@
 namespace App\sts\Controllers;
 
 // Exemplo antiga versão nao deu certo
-if (!defined('URL')) {
+if (!defined('48b5ts')) {
     // Redirecionando para a Raiz do projeto
     header("Location: /");
     die("Erro: Página não encontrada!");
@@ -11,8 +11,12 @@ if (!defined('URL')) {
 
 class Home
 {
+    private array $dados;
+
     public function index()
     {
-        echo "Pagina Inicial<br>";
+        $this->dados = [];
+        $carregarView =  new \Core\ConfigView("/sts/Views/home/home", $this->dados);
+        $carregarView->renderizar();
     }
 }
