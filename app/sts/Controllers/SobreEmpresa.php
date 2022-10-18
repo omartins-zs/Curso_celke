@@ -15,6 +15,10 @@ class SobreEmpresa
 
     public function index()
     {
+
+        $list = new \App\sts\Models\StsSobreEmpresa();
+        $list->index();
+
         $this->dados = [];
         $carregarView =  new \Core\ConfigView("/sts/Views/sobreEmpresa/sobreEmpresa", $this->dados);
         $carregarView->renderizar();
