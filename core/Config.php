@@ -28,6 +28,7 @@ class Config
         define('USER', 'root');
         define('PASSWORD', '');
         define('DBNAME', 'celke');
+        define('EMAILADM', 'gabrielmartinsdev@gmail.com');
         // define('PORT', 3308);
         
     }
