@@ -11,7 +11,7 @@ if (!defined('48b5ts')) {
     die("Erro: Página não encontrada!");
 }
 
-class StsConn
+abstract class StsConn
 {
 
     private string $host = HOST;
@@ -22,7 +22,7 @@ class StsConn
     // private object $connect;
 
 
-    public function connect()
+    protected function connect()
     {
         try {
             $this->connect = new PDO("mysql:host={$this->host};dbname=" . $this->dbName, $this->user, $this->password);
