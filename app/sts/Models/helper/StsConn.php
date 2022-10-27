@@ -10,9 +10,10 @@ if (!defined('48b5ts')) {
     header("Location: /");
     die("Erro: Página não encontrada!");
 }
-
+// Classe abstrata ninguem instancia apenas herda
 abstract class StsConn
 {
+    // Voltar no video e colocar signioficado
 
     private string $host = HOST;
     private string $user = USER;
@@ -21,7 +22,8 @@ abstract class StsConn
     // private int $port = PORT;
     // private object $connect;
 
-
+    // Metodo Private só a propia classe
+    // Metodo protected so a classe filhba consegue usar
     protected function connect()
     {
         try {

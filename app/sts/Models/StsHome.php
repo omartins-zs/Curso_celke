@@ -11,14 +11,14 @@ if (!defined('48b5ts')) {
 
 class StsHome
 {
-    // private array $connection;
+
+    //private object $connection;
 
     public function index()
     {
-        $connection = new \App\sts\Models\helper\StsConn();
+        /*$connection = new \App\sts\Models\helper\StsConn();
         $this->connection = $connection->connect();
-
-        // testando e vericando conexão
-        var_dump($this->connection);
+        var_dump($this->connection);*/
+        echo "Models: Listar dados da página home!<br>";
     }
 }
