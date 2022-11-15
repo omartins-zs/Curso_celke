@@ -18,7 +18,10 @@ class StsSobreEmpresa
     public function index()
     {
         $listSobreEmpresa = new \App\sts\Models\helper\StsRead();
-        $listSobreEmpresa->exeRead("sts_sobres_empresas", "WHERE sts_situation_id =:sts_situation_id LIMIT :limit", "sts_situation_id=1&limit=5");
-        var_dump($listSobreEmpresa->getResult());
+        // $listSobreEmpresa->exeRead("sts_sobres_empresas", "WHERE sts_situation_id =:sts_situation_id LIMIT :limit", "sts_situation_id=1&limit=5");
+        $listSobreEmpresa->fullRead("SELECT id, title, description, image
+        FROM sts_sobres_empresas
+        WHERE sts_situation_id =:sts_situation_id LIMIT :limit", "sts_situation_id=1&limit=5");
+        return $listSobreEmpresa->getResult();
     }
 }

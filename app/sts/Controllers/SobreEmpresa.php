@@ -17,9 +17,8 @@ class SobreEmpresa
     {
 
         $list = new \App\sts\Models\StsSobreEmpresa();
-        $list->index();
+        $this->dados['sts_sobres_empresas'] = $list->index();
 
-        $this->dados = [];
         $carregarView =  new \Core\ConfigView("/sts/Views/sobreEmpresa/sobreEmpresa", $this->dados);
         $carregarView->renderizar();
     }
