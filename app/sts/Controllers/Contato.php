@@ -17,18 +17,30 @@ if (!defined('48b5ts')) {
  */
 class Contato
 {
-    /** @var array $dados Recebe os dados que devem ser enviados para VIEW */
-    private array $dados;
+    /** @var array $data Recebe os dados que devem ser enviados para VIEW */
+    private $data;
+    /** @var array $dataForm Recebe os dados do formulário */
+    private $dataForm;
 
     /**
      * Instantiar a classe responsável em carregar a View
      * 
      * @return void
      */
-    public function index()
+    public function index(): void
     {
-        $this->dados = [];
-        $carregarView =  new \Core\ConfigView("/sts/Views/contato/contato", $this->dados);
+
+        $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+        if (!empty($this->dataForm['CreatContMsg'])) {
+            unset($this->dataForm['CreatContMsg']);
+            $createContactMsg = new \App\sts\Models\StsContato();
+            if ($createContactMsg->create($this->dataForm)) {
+            } else {
+                $this->data['form'] = $this->dataForm;
+            }
+        }
+
+        $carregarView = new \Core\ConfigView("sts/Views/contato/contato", $this->data);
         $carregarView->renderizar();
     }
 }
