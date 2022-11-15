@@ -9,10 +9,24 @@ if (!defined('48b5ts')) {
     die("Erro: Página não encontrada!");
 }
 
+
+/**
+ * Controller da página Home
+ *
+ * @author Gabriel Martins
+ */
 class Home
 {
+
+    /** @var array $dados Recebe os dados que devem ser enviados para VIEW */
     private array $dados;
 
+    /**
+     * Instanciar a MODELS e receber o retorno
+     * Instantiar a classe responsável em carregar a View e enviar os dados para View.
+     * 
+     * @return void
+     */
     public function index()
     {
         $home = new \App\sts\Models\StsHome();

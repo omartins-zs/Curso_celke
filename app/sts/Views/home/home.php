@@ -8,6 +8,8 @@ if (!defined('48b5ts')) {
 
 echo "<h1>Listar dados da pagina Home</h1>";
 
+//Ler o registro da página home retornado do banco de dados
+//A função extract é utilizado para extrair o array e imprimir através do nome da chave
 extract($this->dados['sts_homes']);
 
 echo "<b>ID:</b> " . $id . "<br>";
