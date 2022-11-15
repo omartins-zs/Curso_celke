@@ -6,4 +6,4 @@ if (!defined('48b5ts')) {
     die("Erro: Página não encontrada!");
 }
 
-echo "View da pagina home";
+echo "";

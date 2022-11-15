@@ -11,14 +11,13 @@ if (!defined('48b5ts')) {
 
 class StsHome
 {
-
-    //private object $connection;
-
     public function index()
     {
-        /*$connection = new \App\sts\Models\helper\StsConn();
-        $this->connection = $connection->connect();
-        var_dump($this->connection);*/
-        echo "Models: Listar dados da página home!<br>";
+        $viewHome = new \App\sts\Models\helper\StsRead();
+        // $listSobreEmpresa->exeRead("sts_sobres_empresas", "WHERE sts_situation_id =:sts_situation_id LIMIT :limit", "sts_situation_id=1&limit=5");
+        $viewHome->fullRead("SELECT id, title_topo, description_topo
+        FROM sts_homes
+        LIMIT :limit", "limit=1");
+        var_dump($viewHome->getResult());
     }
 }

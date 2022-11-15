@@ -26,15 +26,11 @@ class StsRead extends StsConn
 
     public function exeRead($tabela, $termos = null, $parseString = null)
     {
-        echo $parseString . "<br>";
         if (!empty($parseString)) {
             parse_str($parseString, $this->values);
-            var_dump($this->values);
         }
         $this->select = "SELECT * FROM {$tabela} {$termos}";
-        echo "Read <br>";
         $this->exeIntruction();
-        var_dump($this->query);
     }
     public function fullRead($query, $parseString = null)
     {

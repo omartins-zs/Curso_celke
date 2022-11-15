@@ -24,19 +24,10 @@ class ConfigController extends Config
         $config = new \Core\Config();
         $config->config();
 
-        echo "<br>";
-
         if (!empty(filter_input(INPUT_GET, "url", FILTER_DEFAULT))) {
             $this->url = filter_input(INPUT_GET, "url", FILTER_DEFAULT);
-            // echo "URL: {$this->url} <br>";
-            // echo "<br>";
             $this->limparUrl();
-            // echo "URL Limpa:  {$this->url} <br>";
-            // echo "<br>";
-
             $this->urlConjunto = explode("/", $this->url);
-            // var_dump($this->urlConjunto);
-            // echo "<br> <br>";
             if (isset($this->urlConjunto[0])) {
                 $this->urlController = $this->slugController($this->urlConjunto[0]);
             } else {
@@ -51,9 +42,6 @@ class ConfigController extends Config
             $this->urlController = CONTROLLER;
             $this->urlParamentro = "";
         }
-
-        echo "Controller: {$this->urlController} - Parametro: {$this->urlParamentro}<br>";
-        echo "<br>";
     }
 
     private function limparUrl()

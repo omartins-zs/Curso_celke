@@ -18,7 +18,6 @@ class ConfigView
     {
         $this->nome = $nome;
         $this->dados = $dados;
-        echo 'Carregar a view: ' .   $this->nome . '<br>';
     }
 
     public function renderizar()
