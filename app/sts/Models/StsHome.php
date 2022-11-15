@@ -11,6 +11,8 @@ if (!defined('48b5ts')) {
 
 class StsHome
 {
+    private array $data;
+
     public function index()
     {
         $viewHome = new \App\sts\Models\helper\StsRead();
@@ -18,6 +20,7 @@ class StsHome
         $viewHome->fullRead("SELECT id, title_topo, description_topo
         FROM sts_homes
         LIMIT :limit", "limit=1");
-        var_dump($viewHome->getResult());
+        $this->data = $viewHome->getResult();
+        return $this->data[0];
     }
 }

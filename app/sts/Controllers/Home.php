@@ -16,9 +16,8 @@ class Home
     public function index()
     {
         $home = new \App\sts\Models\StsHome();
-        $home->index();
+        $this->dados['sts_homes'] = $home->index();
 
-        $this->dados = [];
         $carregarView =  new \Core\ConfigView("/sts/Views/home/home", $this->dados);
         $carregarView->renderizar();
     }

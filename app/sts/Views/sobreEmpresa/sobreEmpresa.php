@@ -11,7 +11,7 @@ echo "<h1>Listar sobre empresa</h1>";
 foreach ($this->dados['sts_sobres_empresas'] as $sobre_emp) {
     extract($sobre_emp);
     echo "ID: " . $id . "<br>";
-    echo "ID: " . $title . "<br>";
-    echo "ID: " . $description . "<br>";
-    echo "ID: " . $image . "<br><hr>";
+    echo "Title: " . $title . "<br>";
+    echo "Description: " . $description . "<br>";
+    echo "Image: " . $image . "<br><hr>";
 }
