@@ -57,4 +57,30 @@ VALUES
         '1',
         '2022-10-13 18:38:03',
         '2022-10-18 23:37:34.000000'
+    ) CREATE TABLE `celke`.`sts_homes` (
+        `id` INT NOT NULL AUTO_INCREMENT,
+        `title_topo` VARCHAR(220) NOT NULL,
+        `description` VARCHAR(220) NOT NULL,
+        `created` DATETIME NOT NULL,
+        `modified` DATETIME NULL,
+        PRIMARY KEY (`id`)
+    ) ENGINE = InnoDB;
+
+INSERT INTO
+    `sts_homes` (
+        `id`,
+        `title_topo`,
+        `description`,
+        `created`,
+        `modified`
     )
+VALUES
+    (
+        NULL,
+        'Temos a solução que a sua empresa pesquisa',
+        'Morbi porta ipsum lectus, a consequat urna laoreet ornare',
+        '2022-11-15 23:17:43.000000',
+        '2022-11-15 23:17:43.000000'
+    )
+ALTER TABLE
+    `sts_homes` CHANGE `description` `description_topo` VARCHAR(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
