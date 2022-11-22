@@ -21,6 +21,8 @@ class StsContato
     public function create(array $data): bool
     {
         $this->data = $data;
+        $this->data['created'] = date("Y-m-d H:i:s");
+
         //var_dump($this->data);
 
         $createContactMsg = new \App\sts\Models\helper\StsCreate();
