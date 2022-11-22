@@ -26,7 +26,12 @@ class StsContato
         $createContactMsg = new \App\sts\Models\helper\StsCreate();
         $createContactMsg->exeCreate("sts_contacts_msgs", $this->data);
 
-        $_SESSION['msg'] = "Mensagem enviada com sucesso!";
-        return true;
+        if ($createContactMsg->getResult()) {
+            $_SESSION['msg'] = "Mensagem enviada com sucesso!";
+            return true;
+        } else {
+            $_SESSION['msg'] = "Mensagem não enviada com sucesso!";
+            return false;
+        }
     }
 }
