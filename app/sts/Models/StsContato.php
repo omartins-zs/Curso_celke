@@ -23,6 +23,9 @@ class StsContato
         $this->data = $data;
         //var_dump($this->data);
 
+        $createContactMsg = new \App\sts\Models\helper\StsCreate();
+        $createContactMsg->exeCreate("sts_contacts_msgs", $this->data);
+
         $_SESSION['msg'] = "Mensagem enviada com sucesso!";
         return true;
     }
