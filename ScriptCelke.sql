@@ -84,3 +84,14 @@ VALUES
     )
 ALTER TABLE
     `sts_homes` CHANGE `description` `description_topo` VARCHAR(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+
+CREATE TABLE `celke`.`sts_contacts_msgs` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(100) NOT NULL,
+    `email` VARCHAR(100) NOT NULL,
+    `subject` VARCHAR(220) NOT NULL,
+    `content` TEXT NOT NULL,
+    `created` DATETIME NOT NULL,
+    `modified` DATETIME NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
