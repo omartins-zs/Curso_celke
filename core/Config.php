@@ -35,9 +35,10 @@ abstract class Config
         // Definindo base url de admnistrador
         define('URLADM', 'http://localhost/celke/adm/');
 
-        // Definindo controller Padrao(Ex:Routes do Codeigniter)
+        // Definindo controller Padrao e de Erro(Ex:Routes do Codeigniter)
         define('CONTROLLER', 'Home');
-        define('METODO', 'INDEX');
+        define('METODO', 'index');
+        define('CONTROLLERERRO', 'Erro');
 
         // Credenciais de Acesso do Banco de dados
         define('HOST', 'localhost');

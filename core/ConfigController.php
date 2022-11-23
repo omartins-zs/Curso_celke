@@ -45,7 +45,7 @@ class ConfigController extends Config
             if (isset($this->urlConjunto[0])) {
                 $this->urlController = $this->slugController($this->urlConjunto[0]);
             } else {
-                $this->urlController = CONTROLLER;
+                $this->urlController = $this->slugController(CONTROLLER)
             }
             if (isset($this->urlConjunto[1])) {
                 $this->urlParamentro = $this->urlConjunto[1];
@@ -53,7 +53,7 @@ class ConfigController extends Config
                 $this->urlParamentro = "";
             }
         } else {
-            $this->urlController = CONTROLLER;
+            $this->urlController =$this->slugController(CONTROLLER);
             $this->urlParamentro = "";
         }
     }
@@ -100,17 +100,35 @@ class ConfigController extends Config
         return $this->urlSlugController;
     }
 
-    /**   
-     * Carregar as Controllers.
-     * Instanciar as classes da controller e carregar o método index.
+   /**  
+     * Verificar se a classe existe.
+     * Não existindo a classe atribuir a classe erro
      * 
      * @return void
      */
-    public function carregar(): void
-    {
-        // Carrega Dinamicamente
-        $classe = "\\App\\sts\\Controllers\\" . $this->urlController;
-        $classeCarregar = new $classe();
-        $classeCarregar->index();
+    public function carregar(): void {
+        $this->classe = "\\App\\sts\\Controllers\\" . $this->urlController;
+        if(class_exists($this->classe)){
+            $this->carregarClasse();
+        }else{
+            $this->urlController = $this->slugController(CONTROLLERERRO);
+            $this->carregar();
+        }
     }
+    
+    /**  
+     * Verificar se o método existe, existindo o método carrega a página;
+     * Não existindo o método, para o carregamento e apresenta mensagem de erro.
+     * 
+     * @return void
+     */    
+    private function carregarClasse(): void {
+        $classeCarregar = new $this->classe();
+        if(method_exists($classeCarregar, "index")){
+            $classeCarregar->index();
+        }else{
+            die('Erro: Por favor tente novamente. Caso o problema persista, entre em contato o administrador ' . EMAILADM . '<br>');
+        }
+    }
+
 }

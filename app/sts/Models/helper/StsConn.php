@@ -24,14 +24,14 @@ abstract class StsConn
     private string $host = HOST;
     /** @var string $user Recebe o usuário da constante USER */
     private string $user = USER;
-    /** @var string $pass Recebe a senha da constante PASS */
-    private string $pass = PASS;
+    /** @var string $password Recebe a senha da constante PASS */
+    private string $password = PASSWORD;
     /** @var string $dbName Recebe a base de dados da constante DBNAME */
     private string $dbName = DBNAME;
     /** @var int $port Recebe a porta da constante PORT */
-    private int $port = PORT;
+    // private int $port = PORT;
     /** @var object $connect Recebe a conexão com o banco de dados */
-    private object $connect;
+    //  private object $connect;
 
     /**
      * Realiza a conexão com o banco de dados.
