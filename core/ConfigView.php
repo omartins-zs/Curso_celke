@@ -41,9 +41,11 @@ class ConfigView
     public function renderizar(): void
     {
         if (file_exists('app/' . $this->nome . '.php')) {
-            include 'app/sts/Views/include/cabecalho.php';
+            include 'app/sts/Views/include/header.php';
+            include 'app/sts/Views/include/navbar.php';
             include 'app/' . $this->nome . '.php';
-            include 'app/sts/Views/include/rodape.php';
+            include 'app/sts/Views/include/footer.php';
+            include 'app/sts/Views/include/js.php';
         } else {
             echo "Página não encontrada: {$this->nome}<br>";
             die("Página não encontrada!");

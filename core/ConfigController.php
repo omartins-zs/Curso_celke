@@ -45,7 +45,7 @@ class ConfigController extends Config
             if (isset($this->urlConjunto[0])) {
                 $this->urlController = $this->slugController($this->urlConjunto[0]);
             } else {
-                $this->urlController = $this->slugController(CONTROLLER)
+                $this->urlController = $this->slugController(CONTROLLER);
             }
             if (isset($this->urlConjunto[1])) {
                 $this->urlParamentro = $this->urlConjunto[1];
@@ -130,5 +130,4 @@ class ConfigController extends Config
             die('Erro: Por favor tente novamente. Caso o problema persista, entre em contato o administrador ' . EMAILADM . '<br>');
         }
     }
-
 }
