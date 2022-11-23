@@ -26,10 +26,9 @@ class StsHome
     public function index(): array
     {
         $viewHome = new \App\sts\Models\helper\StsRead();
-        // $listSobreEmpresa->exeRead("sts_sobres_empresas", "WHERE sts_situation_id =:sts_situation_id LIMIT :limit", "sts_situation_id=1&limit=5");
-        $viewHome->fullRead("SELECT id, title_topo, description_topo
-        FROM sts_homes
-        LIMIT :limit", "limit=1");
+        $viewHome->fullRead("SELECT id, title_top, description_top, link_btn_top, txt_btn_top, image
+              FROM sts_homes_tops
+              LIMIT :limit", "limit=1");
         $this->data = $viewHome->getResult();
         return $this->data[0];
     }
