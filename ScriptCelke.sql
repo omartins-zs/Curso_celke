@@ -178,3 +178,38 @@ ALTER TABLE
     CHANGE `icone_tres_serv` `icone_tres_serv` VARCHAR(44) NOT NULL,
     CHANGE `titulo_tres_serv` `titulo_tres_serv` VARCHAR(150) NOT NULL,
     CHANGE `description_tres_serv` `description_tres_serv` VARCHAR(150) NOT NULL;
+
+INSERT INTO
+    `sts_sobres_servs` (
+        `id`,
+        `title_serv`,
+        `description_serv`,
+        `icone_um_serv`,
+        `titulo_um_serv`,
+        `description_um_serv`,
+        `icone_dois_serv`,
+        `titulo_dois_serv`,
+        `description_dois_serv`,
+        `icone_tres_serv`,
+        `titulo_tres_serv`,
+        `description_tres_serv`,
+        `created`,
+        `modified`
+    )
+VALUES
+    (
+        NULL,
+        'Serviços',
+        'This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.\r\n\r\n',
+        'fa fa-ship',
+        'Serviço um',
+        'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur non ultricies mi, sit amet laoreet diam.',
+        'fa fa-map-marked-alt',
+        'Serviço dois',
+        'Quisque ut interdum nunc. Pellentesque metus neque, convallis sed vestibulum eu, viverra et justo. In laoreet diam nec nisl consectetur auctor.',
+        'fa fa-snowplow',
+        'Serviço três\r\n',
+        'Donec porttitor metus a arcu pulvinar ultricies. Aliquam commodo fermentum sapien quis porta. Nunc ac hendrerit libero, vel aliquam mauris.',
+        '2022-11-28 02:14:08.000000',
+        '2022-11-28 02:14:08.000000'
+    )
