@@ -169,3 +169,12 @@ AFTER
         `modified` DATETIME NULL,
         PRIMARY KEY (`id`)
     ) ENGINE = InnoDB;
+
+ALTER TABLE
+    `sts_sobres_servs` CHANGE `description_um_serv` `description_um_serv` VARCHAR(150) NOT NULL,
+    CHANGE `icone_dois_serv` `icone_dois_serv` VARCHAR(44) NOT NULL,
+    CHANGE `titulo_dois_serv` `titulo_dois_serv` VARCHAR(150) NOT NULL,
+    CHANGE `description_dois_serv` `description_dois_serv` VARCHAR(150) NOT NULL,
+    CHANGE `icone_tres_serv` `icone_tres_serv` VARCHAR(44) NOT NULL,
+    CHANGE `titulo_tres_serv` `titulo_tres_serv` VARCHAR(150) NOT NULL,
+    CHANGE `description_tres_serv` `description_tres_serv` VARCHAR(150) NOT NULL;
