@@ -95,3 +95,77 @@ CREATE TABLE `celke`.`sts_contacts_msgs` (
     `modified` DATETIME NOT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
+
+RENAME TABLE `celke`.`sts_homes` TO `celke`.`sts_homes_tops`;
+
+ALTER TABLE
+    `sts_homes_tops`
+ADD
+    `link_btn_top` VARCHAR(100) NOT NULL
+AFTER
+    `modified`,
+ADD
+    `txt_btn_top` VARCHAR(40) NOT NULL
+AFTER
+    `link_btn_top`;
+
+UPDATE
+    `sts_homes_tops`
+SET
+    `link_btn_top` = 'http://localhost/celke/contato'
+WHERE
+    `sts_homes_tops`.`id` = 1;
+
+UPDATE
+    `sts_homes_tops`
+SET
+    `txt_btn_top` = 'Contato'
+WHERE
+    `sts_homes_tops`.`id` = 1;
+
+ALTER TABLE
+    `sts_homes_tops` CHANGE `title_topo` `title_top` VARCHAR(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+
+ALTER TABLE
+    `sts_homes_tops` CHANGE `description_topo` `description_top` VARCHAR(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+
+ALTER TABLE
+    `sts_homes_tops`
+ADD
+    `image` VARCHAR(200) NOT NULL
+AFTER
+    `txt_btn_top`;
+
+UPDATE
+    `sts_homes_tops`
+SET
+    `image` = 'topo.jpg'
+WHERE
+    `sts_homes_tops`.`id` = 1;
+
+ALTER TABLE
+    `sts_homes_tops` CHANGE `link_btn_top` `link_btn_top` VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+AFTER
+    `description_top`,
+    CHANGE `txt_btn_top` `txt_btn_top` VARCHAR(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+AFTER
+    `link_btn_top`,
+    CHANGE `image` `image` VARCHAR(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+AFTER
+    `txt_btn_top` CREATE TABLE `celke`.`sts_sobres_servs` (
+        `id` INT NOT NULL AUTO_INCREMENT,
+        `title_serv` VARCHAR(100) NOT NULL,
+        `description_serv` VARCHAR(150) NOT NULL,
+        `icone_um_serv` VARCHAR(44) NOT NULL,
+        `titulo_um_serv` VARCHAR(44) NOT NULL,
+        `description_um_serv` INT(150) NOT NULL,
+        `icone_dois_serv` INT NOT NULL,
+        `titulo_dois_serv` INT NOT NULL,
+        `description_dois_serv` INT NOT NULL,
+        `icone_tres_serv` INT NOT NULL,
+        `titulo_tres_serv` INT NOT NULL,
+        `description_tres_serv` INT NOT NULL,
+        `created` DATETIME NOT NULL,
+        `modified` DATETIME NULL,
+        PRIMARY KEY (`id`)
+    ) ENGINE = InnoDB;
