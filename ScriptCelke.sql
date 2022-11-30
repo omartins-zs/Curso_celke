@@ -238,3 +238,29 @@ CREATE TABLE `celke`.`sts_homes_actions` (
     `modified` DATETIME NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
+
+ALTER TABLE
+    `sts_homes_actions` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
+
+INSERT INTO
+    `sts_homes_actions` (
+        `id`,
+        `title_action`,
+        `subtitle_action`,
+        `description_action`,
+        `link_btn_action`,
+        `txt_btn_action`,
+        `created`,
+        `modified`
+    )
+VALUES
+    (
+        '1',
+        'For calling extra attention to featured content or information.\r\n',
+        'Elit et mi fringilla commodo eget in lectus!\r\n',
+        'Orci varius natoque penatibus et magnis dis parturient montes, nascetur commodo mus.\r\n\r\n',
+        'http://localhost/celke/contato',
+        'Contato',
+        '2022-11-30 23:06:37.000000',
+        '2022-11-30 23:06:37.000000'
+    )
