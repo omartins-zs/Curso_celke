@@ -61,11 +61,35 @@ extract($this->dados['sts_homes']['action']);
 $imagem_action = URL . "app/sts/assets/images/home_action/" . $image;
 ?>
 
-<div class="jumbotron descr-action" style="background-image: url('<?=$imagem_action; ?>');">
+<div class="jumbotron descr-action" style="background-image: url('<?= $imagem_action; ?>');">
     <div class="container text-center">
-        <h4 class="lead mb-4"><?=$title_action; ?></h4>
-        <h2 class="display-4 mb-4"><?=$subtitle_action; ?></h2>
-        <p class="lead mb-4"><?=$description_action; ?></p>
-        <a class="btn btn-primary btn-lg" href="<?=$link_btn_action; ?>" role="button"><?=$txt_btn_action; ?></a>
+        <h4 class="lead mb-4"><?= $title_action; ?></h4>
+        <h2 class="display-4 mb-4"><?= $subtitle_action; ?></h2>
+        <p class="lead mb-4"><?= $description_action; ?></p>
+        <a class="btn btn-primary btn-lg" href="<?= $link_btn_action; ?>" role="button"><?= $txt_btn_action; ?></a>
+    </div>
+</div>
+
+
+<?php
+extract($this->dados['sts_homes']['det']);
+
+$imagem_det = URL . "app/sts/assets/images/home_det/" . $image;
+?>
+
+<div class="jumbotron descr-det">
+    <div class="container">
+        <h2 class="display-4 text-center titulo"><?= $title_det; ?></h2>
+
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading"><?= $subtitle_det; ?></h2>
+                <p class="lead"><?= $description_det; ?></p>
+            </div>
+
+            <div class="col-md-5 order-md-1">
+                <img src="<?= $imagem_det; ?>" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" alt="<?= $title_det; ?>">
+            </div>
+        </div>
     </div>
 </div>
