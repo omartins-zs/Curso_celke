@@ -264,3 +264,16 @@ VALUES
         '2022-11-30 23:06:37.000000',
         '2022-11-30 23:06:37.000000'
     )
+ALTER TABLE
+    `sts_homes_actions`
+ADD
+    `image` VARCHAR(150) NOT NULL
+AFTER
+    `txt_btn_action`;
+
+UPDATE
+    `sts_homes_actions`
+SET
+    `image` = 'chamada_acao.jpg'
+WHERE
+    `sts_homes_actions`.`id` = 1;
