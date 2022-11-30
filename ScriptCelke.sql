@@ -83,7 +83,8 @@ VALUES
         '2022-11-15 23:17:43.000000'
     )
 ALTER TABLE
-    `sts_homes` CHANGE `description` `description_topo` VARCHAR(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+    `sts_homes` CHANGE `description` `description_topo` VARCHAR(220) CHARACTER
+SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
 
 CREATE TABLE `celke`.`sts_contacts_msgs` (
     `id` INT NOT NULL AUTO_INCREMENT,
@@ -124,10 +125,12 @@ WHERE
     `sts_homes_tops`.`id` = 1;
 
 ALTER TABLE
-    `sts_homes_tops` CHANGE `title_topo` `title_top` VARCHAR(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+    `sts_homes_tops` CHANGE `title_topo` `title_top` VARCHAR(220) CHARACTER
+SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
 
 ALTER TABLE
-    `sts_homes_tops` CHANGE `description_topo` `description_top` VARCHAR(220) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+    `sts_homes_tops` CHANGE `description_topo` `description_top` VARCHAR(220) CHARACTER
+SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
 
 ALTER TABLE
     `sts_homes_tops`
@@ -144,13 +147,16 @@ WHERE
     `sts_homes_tops`.`id` = 1;
 
 ALTER TABLE
-    `sts_homes_tops` CHANGE `link_btn_top` `link_btn_top` VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+    `sts_homes_tops` CHANGE `link_btn_top` `link_btn_top` VARCHAR(100) CHARACTER
+SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 AFTER
     `description_top`,
-    CHANGE `txt_btn_top` `txt_btn_top` VARCHAR(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+    CHANGE `txt_btn_top` `txt_btn_top` VARCHAR(40) CHARACTER
+SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 AFTER
     `link_btn_top`,
-    CHANGE `image` `image` VARCHAR(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+    CHANGE `image` `image` VARCHAR(200) CHARACTER
+SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 AFTER
     `txt_btn_top` CREATE TABLE `celke`.`sts_sobres_servs` (
         `id` INT NOT NULL AUTO_INCREMENT,
@@ -212,4 +218,23 @@ VALUES
         'Donec porttitor metus a arcu pulvinar ultricies. Aliquam commodo fermentum sapien quis porta. Nunc ac hendrerit libero, vel aliquam mauris.',
         '2022-11-28 02:14:08.000000',
         '2022-11-28 02:14:08.000000'
-    )
+    ) RENAME TABLE `celke`.`sts_sobres_servs` TO `celke`.`sts_homes_servs`;
+
+UPDATE
+    `sts_homes_servs`
+SET
+    `titulo_um_serv` = 'Serviço Bom'
+WHERE
+    `sts_homes_servs`.`id` = 1;
+
+CREATE TABLE `celke`.`sts_homes_actions` (
+    `id` INT NOT NULL,
+    `title_action` VARCHAR(150) NOT NULL,
+    `subtitle_action` VARCHAR(150) NOT NULL,
+    `description_action` VARCHAR(150) NOT NULL,
+    `link_btn_action` VARCHAR(150) NOT NULL,
+    `txt_btn_action` VARCHAR(44) NOT NULL,
+    `created` DATETIME NOT NULL,
+    `modified` DATETIME NULL,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
