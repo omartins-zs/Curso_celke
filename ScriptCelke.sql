@@ -318,3 +318,33 @@ SET
     `modified` = NULL
 WHERE
     `sts_homes_dets`.`id` = 1;
+
+UPDATE
+    `sts_sobres_empresas`
+SET
+    `image` = 'about_company.jpg'
+WHERE
+    `sts_sobres_empresas`.`id` = 1;
+
+UPDATE
+    `sts_sobres_empresas`
+SET
+    `image` = 'about_company.jpg'
+WHERE
+    `sts_sobres_empresas`.`id` = 2;
+
+UPDATE
+    `sts_sobres_empresas`
+SET
+    `image` = 'about_company.jpg'
+WHERE
+    `sts_sobres_empresas`.`id` = 3;
+
+UPDATE
+    `sts_sobres_empresas`
+SET
+    `image` = 'about_company.jpg'
+WHERE
+    `sts_sobres_empresas`.`id` = 4;
+
+RENAME TABLE `celke`.`sts_sobres_empresas` TO `celke`.`sts_abouts_companies`;
