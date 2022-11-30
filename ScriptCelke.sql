@@ -277,3 +277,44 @@ SET
     `image` = 'chamada_acao.jpg'
 WHERE
     `sts_homes_actions`.`id` = 1;
+
+CREATE TABLE `celke`.`sts_homes_dets` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `title_det` VARCHAR(150) NOT NULL,
+    `subtitle_det` VARCHAR(150) NOT NULL,
+    `description_det` TEXT NOT NULL,
+    `image` VARCHAR(150) NOT NULL,
+    `created` DATETIME NOT NULL,
+    `modified` DATETIME NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
+
+INSERT INTO
+    `sts_homes_dets` (
+        `id`,
+        `title_det`,
+        `subtitle_det`,
+        `description_det`,
+        `image`,
+        `created`,
+        `modified`
+    )
+VALUES
+    (
+        NULL,
+        'Phasellus id consectetur orci.\r\n',
+        'Oh yeah, it’s that good.\r\n',
+        'Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo',
+        'detalhes_servico.jpg',
+        '2022-11-30 23:24:35.000000',
+        '2022-11-30 23:24:35.000000'
+    )
+ALTER TABLE
+    `sts_homes_dets` CHANGE `modified` `modified` DATETIME NULL;
+
+UPDATE
+    `sts_homes_dets`
+SET
+    `modified` = NULL
+WHERE
+    `sts_homes_dets`.`id` = 1;
