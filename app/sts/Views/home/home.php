@@ -54,3 +54,18 @@ extract($this->dados['sts_homes']['serv']);
         </div>
     </div>
 </div>
+
+<?php
+extract($this->dados['sts_homes']['action']);
+
+$imagem_action = URL . "app/sts/assets/images/home_action/" . $image;
+?>
+
+<div class="jumbotron descr-action" style="background-image: url('<?=$imagem_action; ?>');">
+    <div class="container text-center">
+        <h4 class="lead mb-4"><?=$title_action; ?></h4>
+        <h2 class="display-4 mb-4"><?=$subtitle_action; ?></h2>
+        <p class="lead mb-4"><?=$description_action; ?></p>
+        <a class="btn btn-primary btn-lg" href="<?=$link_btn_action; ?>" role="button"><?=$txt_btn_action; ?></a>
+    </div>
+</div>

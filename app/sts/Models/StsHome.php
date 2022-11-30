@@ -21,6 +21,8 @@ class StsHome
     private array $dataTop;
     /** @var array $dataServ Recebe os registros do banco de dados relacionado aos serviços */
     private array $dataServ;
+    /** @var array $dataAction Recebe os registros do banco de dados relacionado a ação */
+    private array $dataAction;
 
     /**
      * Instancia a classe genérica no helper responsável em buscar os registro no banco de dados.
@@ -31,16 +33,17 @@ class StsHome
     {
         $this->viewTop();
         $this->viewServ();
+        $this->viewAction();
         return $this->data;
     }
 
     private function viewTop()
     {
-        $viewHome = new \App\sts\Models\helper\StsRead();
-        $viewHome->fullRead("SELECT id, title_top, description_top, link_btn_top, txt_btn_top, image
-                    FROM sts_homes_tops
-                    LIMIT :limit", "limit=1");
-        $this->dataTop = $viewHome->getResult();
+        $viewTop = new \App\sts\Models\helper\StsRead();
+        $viewTop->fullRead("SELECT id, title_top, description_top, link_btn_top, txt_btn_top, image
+             FROM sts_homes_tops
+             LIMIT :limit", "limit=1");
+        $this->dataTop = $viewTop->getResult();
         $this->data['top'] = $this->dataTop[0];
     }
 
@@ -48,9 +51,19 @@ class StsHome
     {
         $viewServ = new \App\sts\Models\helper\StsRead();
         $viewServ->fullRead("SELECT id, title_serv, description_serv, icone_um_serv, titulo_um_serv, description_um_serv, icone_dois_serv, titulo_dois_serv, description_dois_serv, icone_tres_serv, titulo_tres_serv, description_tres_serv
-                    FROM sts_homes_servs
-                    LIMIT :limit", "limit=1");
+             FROM sts_homes_servs
+             LIMIT :limit", "limit=1");
         $this->dataServ = $viewServ->getResult();
         $this->data['serv'] = $this->dataServ[0];
+    }
+
+    private function viewAction()
+    {
+        $viewAction = new \App\sts\Models\helper\StsRead();
+        $viewAction->fullRead("SELECT id, title_action, subtitle_action, description_action, link_btn_action, txt_btn_action, image
+             FROM sts_homes_actions
+             LIMIT :limit", "limit=1");
+        $this->dataAction = $viewAction->getResult();
+        $this->data['action'] = $this->dataAction[0];
     }
 }
