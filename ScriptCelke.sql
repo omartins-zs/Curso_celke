@@ -385,4 +385,23 @@ VALUES
         '(xx) xxxx-xxxx',
         '2022-12-01 23:51:53.000000',
         '2022-12-01 23:51:53.000000'
-    )
+    ) CREATE TABLE `celke`.`sts_footers` (
+        `id` INT NOT NULL AUTO_INCREMENT,
+        `title_site` VARCHAR(44) NOT NULL,
+        `title_contatc` VARCHAR(44) NOT NULL,
+        `phone` VARCHAR(44) NOT NULL,
+        `address` VARCHAR(150) NOT NULL,
+        `cnpj` VARCHAR(44) NOT NULL,
+        `title_social_networks` VARCHAR(44) NOT NULL,
+        `txt_one_social_networks` VARCHAR(44) NOT NULL,
+        `link_one_social_networks` VARCHAR(150) NOT NULL,
+        `txt_two_social_networks` VARCHAR(44) NOT NULL,
+        `link_two_social_networks` VARCHAR(150) NOT NULL,
+        `txt_three_social_networks` VARCHAR(44) NOT NULL,
+        `link_three_social_networks` VARCHAR(150) NOT NULL,
+        `txt_four_social_networks` VARCHAR(44) NOT NULL,
+        `link_four_social_networks` VARCHAR(150) NOT NULL,
+        `created` DATETIME NOT NULL,
+        `modified` DATETIME NULL,
+        PRIMARY KEY (`id`)
+    ) ENGINE = InnoDB;
