@@ -446,16 +446,48 @@ VALUES
         '2022-12-02 00:39:18.000000',
         '2022-12-02 00:39:18.000000'
     )
+ALTER TABLE
+    `sts_footers` CHANGE `title_social_networks` `social_networks` VARCHAR(44) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
 
-    ALTER TABLE `sts_footers` CHANGE `title_social_networks` `social_networks` VARCHAR(44) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+ALTER TABLE
+    `sts_footers`
+ADD
+    `url_address` VARCHAR(150) NOT NULL
+AFTER
+    `modified`,
+ADD
+    `url_cnpj` VARCHAR(150) NOT NULL
+AFTER
+    `url_address`;
 
+UPDATE
+    `sts_footers`
+SET
+    `social_networks` = 'Redes Scociais'
+WHERE
+    `sts_footers`.`id` = 1;
 
-    ALTER TABLE `sts_footers` ADD `url_address` VARCHAR(150) NOT NULL AFTER `modified`, ADD `url_cnpj` VARCHAR(150) NOT NULL AFTER `url_address`;
+UPDATE
+    `sts_footers`
+SET
+    `url_address` = 'http://localhost/celke/contato'
+WHERE
+    `sts_footers`.`id` = 1;
 
+UPDATE
+    `sts_footers`
+SET
+    `url_cnpj` = 'http://localhost/celke/contato'
+WHERE
+    `sts_footers`.`id` = 1;
 
-    UPDATE `sts_footers` SET `social_networks` = 'Redes Scociais' WHERE `sts_footers`.`id` = 1;
+ALTER TABLE
+    `sts_footers` CHANGE `social_networks` `title_social_networks` VARCHAR(44) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
 
-UPDATE `sts_footers` SET `url_address` = 'http://localhost/celke/contato' WHERE `sts_footers`.`id` = 1;
-
-
-UPDATE `sts_footers` SET `url_cnpj` = 'http://localhost/celke/contato' WHERE `sts_footers`.`id` = 1;
+ALTER TABLE
+    `sts_footers` CHANGE `url_address` `url_address` VARCHAR(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+AFTER
+    `address`,
+    CHANGE `url_cnpj` `url_cnpj` VARCHAR(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+AFTER
+    `cnpj`
