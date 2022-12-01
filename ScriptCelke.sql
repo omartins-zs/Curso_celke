@@ -361,3 +361,28 @@ CREATE TABLE `celke`.`sts_contacts` (
     `modified` DATETIME NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
+
+INSERT INTO
+    `sts_contacts` (
+        `id`,
+        `title_opening_hours`,
+        `opening_hours`,
+        `title_address`,
+        `address`,
+        `address_two`,
+        `phone`,
+        `created`,
+        `modified`
+    )
+VALUES
+    (
+        NULL,
+        'Entre em contato - ...',
+        'Segunda a Sexta: 08:30 às 12:00 e 13:30 às 18:00',
+        'Endereço',
+        'Avenida Winston Churchill, 936',
+        'Capão Raso - Curitiba',
+        '(xx) xxxx-xxxx',
+        '2022-12-01 23:51:53.000000',
+        '2022-12-01 23:51:53.000000'
+    )
