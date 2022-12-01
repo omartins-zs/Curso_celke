@@ -36,10 +36,10 @@ class StsContato
         $createContactMsg->exeCreate("sts_contacts_msgs", $this->data);
 
         if ($createContactMsg->getResult()) {
-            $_SESSION['msg'] = "Mensagem enviada com sucesso!";
+            $_SESSION['msg'] = "<div class='alert alert-success' role='alert'>Mensagem enviada com sucesso!</div>";
             return true;
         } else {
-            $_SESSION['msg'] = "Mensagem não enviada com sucesso!";
+            $_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Mensagem não enviada com sucesso!</div>";
             return false;
         }
     }
