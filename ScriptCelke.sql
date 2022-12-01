@@ -348,3 +348,16 @@ WHERE
     `sts_sobres_empresas`.`id` = 4;
 
 RENAME TABLE `celke`.`sts_sobres_empresas` TO `celke`.`sts_abouts_companies`;
+
+CREATE TABLE `celke`.`sts_contacts` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `title_opening_hours` VARCHAR(150) NOT NULL,
+    `opening_hours` VARCHAR(150) NOT NULL,
+    `title_address` VARCHAR(150) NOT NULL,
+    `address` VARCHAR(150) NOT NULL,
+    `address_two` VARCHAR(150) NOT NULL,
+    `phone` VARCHAR(44) NOT NULL,
+    `created` DATETIME NOT NULL,
+    `modified` DATETIME NULL,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
