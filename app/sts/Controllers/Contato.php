@@ -40,6 +40,9 @@ class Contato
             }
         }
 
+        $viewContact = new \App\sts\Models\StsContato();
+        $this->data['address'] = $viewContact->view();
+
         $carregarView = new \Core\ConfigView("sts/Views/contato/contato", $this->data);
         $carregarView->renderizar();
     }
