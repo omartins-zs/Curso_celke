@@ -405,3 +405,57 @@ VALUES
         `modified` DATETIME NULL,
         PRIMARY KEY (`id`)
     ) ENGINE = InnoDB;
+
+INSERT INTO
+    `sts_footers` (
+        `id`,
+        `title_site`,
+        `title_contatc`,
+        `phone`,
+        `address`,
+        `cnpj`,
+        `title_social_networks`,
+        `txt_one_social_networks`,
+        `link_one_social_networks`,
+        `txt_two_social_networks`,
+        `link_two_social_networks`,
+        `txt_three_social_networks`,
+        `link_three_social_networks`,
+        `txt_four_social_networks`,
+        `link_four_social_networks`,
+        `created`,
+        `modified`
+    )
+VALUES
+    (
+        NULL,
+        'Celke',
+        'Contato',
+        '(XX) XXXXX-XXXX',
+        'Av. Winston Churchill',
+        'CNPJ: XX.XXX.XXX/XXXX-XX',
+        '',
+        'Instagram',
+        'https://www.instagram.com/celkecursos',
+        'Facebook',
+        'https://www.facebook.com/celkecursos/',
+        'Youtube',
+        'https://www.youtube.com/channel/UC5ClMRHFl8o_MAaO4w7ZYug',
+        'Twiter',
+        'https://www.youtube.com/channel/UC5ClMRHFl8o_MAaO4w7ZYug',
+        '2022-12-02 00:39:18.000000',
+        '2022-12-02 00:39:18.000000'
+    )
+
+    ALTER TABLE `sts_footers` CHANGE `title_social_networks` `social_networks` VARCHAR(44) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+
+
+    ALTER TABLE `sts_footers` ADD `url_address` VARCHAR(150) NOT NULL AFTER `modified`, ADD `url_cnpj` VARCHAR(150) NOT NULL AFTER `url_address`;
+
+
+    UPDATE `sts_footers` SET `social_networks` = 'Redes Scociais' WHERE `sts_footers`.`id` = 1;
+
+UPDATE `sts_footers` SET `url_address` = 'http://localhost/celke/contato' WHERE `sts_footers`.`id` = 1;
+
+
+UPDATE `sts_footers` SET `url_cnpj` = 'http://localhost/celke/contato' WHERE `sts_footers`.`id` = 1;
