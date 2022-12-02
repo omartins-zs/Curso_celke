@@ -43,6 +43,9 @@ class Contato
         $viewContact = new \App\sts\Models\StsContato();
         $this->data['address'] = $viewContact->view();
 
+        $viewFooter = new \App\sts\Models\StsFooter();
+        $this->data['footer'] = $viewFooter->view();
+
         $carregarView = new \Core\ConfigView("sts/Views/contato/contato", $this->data);
         $carregarView->renderizar();
     }

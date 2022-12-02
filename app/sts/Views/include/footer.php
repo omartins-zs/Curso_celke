@@ -8,12 +8,13 @@ if (!defined('48b5ts')) {
     header("Location: /");
     die("Erro: Página não encontrada!");
 }
+extract($this->dados['footer']);
 ?>
 <div class="jumbotron footer-per">
     <div class="container">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-4">
-                <h5>Celke</h5>
+                <h5><?= $title_site; ?></h5>
                 <ul class="list-unstyled">
                     <li>
                         <a href="<?= URL; ?>" class="link-footer">Home</a>
@@ -27,34 +28,34 @@ if (!defined('48b5ts')) {
                 </ul>
             </div>
             <div class="col-12 col-sm-12 col-md-4">
-                <h5>Contato</h5>
+                <h5><?= $title_contact; ?></h5>
                 <ul class="list-unstyled">
                     <ul class="list-unstyled">
                         <li>
-                            <a href="tel: XXXXXXXXXXX" class="link-footer">(XX) XXXXX-XXXX</a>
+                            <a href="tel: <?= $phone; ?>" class="link-footer"><?= $phone; ?></a>
                         </li>
                         <li>
-                            <a href="<?= URL; ?>contato" class="link-footer">Av. Winston Churchill</a>
+                            <a href="<?= $url_address; ?>" class="link-footer"><?= $address; ?></a>
                         </li>
                         <li>
-                            <a href="<?= URL; ?>contato" class="link-footer">CNPJ: XX.XXX.XXX/XXXX-XX</a>
+                            <a href="<?= $url_cnpj; ?>" class="link-footer"><?= $cnpj; ?></a>
                         </li>
                     </ul>
             </div>
             <div class="col-12 col-sm-12 col-md-4">
-                <h5>Redes Sociais</h5>
+                <h5><?= $title_social_networks; ?></h5>
                 <ul class="list-unstyled">
                     <li>
-                        <a href="https://www.instagram.com/celkecursos" target="_blank" class="link-footer">Instagram</a>
+                        <a href="<?= $link_one_social_networks; ?>" target="_blank" class="link-footer"><?= $txt_one_social_networks; ?></a>
                     </li>
                     <li>
-                        <a href="https://www.facebook.com/celkecursos/" target="_blank" class="link-footer">Facebook</a>
+                        <a href="<?= $link_two_social_networks; ?>" target="_blank" class="link-footer"><?= $txt_two_social_networks; ?></a>
                     </li>
                     <li>
-                        <a href="https://www.youtube.com/channel/UC5ClMRHFl8o_MAaO4w7ZYug" target="_blank" class="link-footer">Youtube</a>
+                        <a href="<?= $link_three_social_networks; ?>" target="_blank" class="link-footer"><?= $txt_three_social_networks; ?></a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/celkecursos" target="_blank" class="link-footer">Twiter</a>
+                        <a href="<?= $link_four_social_networks; ?>" target="_blank" class="link-footer"><?= $txt_four_social_networks; ?></a>
                     </li>
                 </ul>
             </div>

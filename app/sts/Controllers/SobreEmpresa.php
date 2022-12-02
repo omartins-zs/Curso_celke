@@ -24,13 +24,15 @@ class SobreEmpresa
      * 
      * @return void
      */
-    public function index()
+    public function index(): void
     {
-
         $list = new \App\sts\Models\StsSobreEmpresa();
         $this->dados['sts_sobres_empresas'] = $list->index();
 
-        $carregarView =  new \Core\ConfigView("/sts/Views/sobreEmpresa/sobreEmpresa", $this->dados);
+        $viewFooter = new \App\sts\Models\StsFooter();
+        $this->dados['footer'] = $viewFooter->view();
+
+        $carregarView = new \Core\ConfigView("sts/Views/sobreEmpresa/sobreEmpresa", $this->dados);
         $carregarView->renderizar();
     }
 }

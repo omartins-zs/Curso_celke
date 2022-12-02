@@ -27,12 +27,16 @@ class Home
      * 
      * @return void
      */
-    public function index()
+    public function index(): void
     {
+
         $home = new \App\sts\Models\StsHome();
         $this->dados['sts_homes'] = $home->index();
 
-        $carregarView =  new \Core\ConfigView("/sts/Views/home/home", $this->dados);
+        $viewFooter = new \App\sts\Models\StsFooter();
+        $this->dados['footer'] = $viewFooter->view();
+
+        $carregarView = new \Core\ConfigView("sts/Views/home/home", $this->dados);
         $carregarView->renderizar();
     }
 }

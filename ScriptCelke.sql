@@ -491,3 +491,5 @@ AFTER
     CHANGE `url_cnpj` `url_cnpj` VARCHAR(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 AFTER
     `cnpj`
+
+    ALTER TABLE `sts_footers` CHANGE `title_contatc` `title_contact` VARCHAR(44) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
